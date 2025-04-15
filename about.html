@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QHD</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-section {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .company-history {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .team-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="企业LOGO">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">缔造奇迹</a></li>
+                <li><a href="portfolio.html">案例展示</a></li>
+                <li><a href="forum.html">论坛交流</a></li>
+              <li><a href="about.html" class="active">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="about-section">
+            <div class="about-grid">
+                <div>
+                    <h1>关于我们</h1>
+                    <p>带领同僚向着烙印在心底的使命出发，击败即将遇到的一切敌人的阻挠，取得至高的荣耀</p>
+                </div>
+                <img src="images/about-company.jpg" alt="公司环境" style="border-radius: 8px;">
+            </div>
+
+            <div class="company-history">
+                <h2>所获成就</h2>
+                <ul>
+                    <li>元歌，马超等十五项国家级荣誉</li>
+                    <li>十五赛季巅峰前三</li>
+                    <li>十五赛季段位榜前三</li>
+                </ul>
+            </div>
+
+            <div class="team-section">
+                <h2>我们的团队</h2>
+                <div class="team-member">
+                    <img src="images/team1.jpg" alt="团队成员">
+                    <h3>清欢渡</h3>
+                    <p>CEO/创始人</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team2.jpg" alt="团队成员">
+                    <h3>=</h3>
+                    <p>技术总监</p>
+                </div>
+                <!-- 更多团队成员 -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

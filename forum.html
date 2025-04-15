@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>论坛交流 - 企业名称</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 论坛主样式 */
+        .forum-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* 发帖按钮 */
+        .new-post-btn {
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* 帖子列表 */
+        .post-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        /* 单个帖子样式 */
+        .post-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .post-meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .post-content {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        /* 发帖模态框 */
+        .post-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            z-index: 1001;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .post-card {
+                padding: 1rem;
+            }
+
+            .new-post-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .post-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="企业LOGO">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">缔造奇迹</a></li>
+                <li><a href="portfolio.html">案例展示</a></li>
+                <li><a href="forum.html" class="active">论坛交流</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="forum-container">
+        <button class="new-post-btn" onclick="showPostForm()">
+            ✏️ 发表新帖
+        </button>
+
+        <div class="post-list">
+            <!-- 示例帖子1 -->
+            <div class="post-card">
+                <div class="post-header">
+                    <img src="images/avatar1.jpg" alt="用户头像" class="user-avatar">
+                    <div>
+                        <h3>网站使用问题咨询</h3>
+                        <div class="post-meta">
+                            <span>作者：张三</span> •
+                            <span>2023-08-01</span> •
+                            <span>技术讨论</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>在使用过程中遇到登录问题，每次点击登录按钮都没有反应，请问该如何解决？</p>
+                </div>
+                <div class="post-actions">
+                    <button class="like-btn">👍 12</button>
+                    <button class="comment-btn">💬 5条评论</button>
+                </div>
+            </div>
+
+            <!-- 示例帖子2 -->
+            <div class="post-card">
+                <div class="post-header">
+                    <img src="images/avatar2.jpg" alt="用户头像" class="user-avatar">
+                    <div>
+                        <h3>产品功能建议收集</h3>
+                        <div class="post-meta">
+                            <span>作者：管理员</span> •
+                            <span>2023-07-28</span> •
+                            <span>官方公告</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>欢迎大家提出宝贵建议，我们将优先开发最受期待的功能！</p>
+                </div>
+                <div class="post-actions">
+                    <button class="like-btn">👍 28</button>
+                    <button class="comment-btn">💬 15条评论</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 发帖模态框 -->
+        <div id="postModal" class="post-modal">
+            <h2>发表新帖</h2>
+            <form id="postForm" onsubmit="submitPost(event)">
+                <input type="text" placeholder="帖子标题" required>
+                <select required>
+                    <option value="">选择板块</option>
+                    <option>技术讨论</option>
+                    <option>产品反馈</option>
+                    <option>官方公告</option>
+                </select>
+                <textarea placeholder="帖子内容" rows="6" required></textarea>
+                <div class="form-actions">
+                    <button type="button" onclick="closePostForm()">取消</button>
+                    <button type="submit">发布</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 发帖功能脚本
+        function showPostForm() {
+            document.getElementById('postModal').style.display = 'block';
+        }
+
+        function closePostForm() {
+            document.getElementById('postModal').style.display = 'none';
+        }
+
+        function submitPost(e) {
+            e.preventDefault();
+            // 这里可以添加实际的提交逻辑
+            alert('帖子已提交！');
+            closePostForm();
+        }
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('postModal');
+            if (event.target === modal) {
+                closePostForm();
+            }
+        }
+
+    </script>
+</body>
+</html>

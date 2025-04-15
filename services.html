@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QHD</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .service-section {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="企业LOGO">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html" class="active">缔造奇迹</a></li>
+                <li><a href="portfolio.html">案例展示</a></li>
+                <li><a href="forum.html">论坛交流</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="service-section">
+            <h1>十年难遇的天才，那年出来九个</h1>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="images/service1.jpg" alt="服务1">
+                    <h3>曾经的T0</h3>
+                    <p></p>
+                </div>
+                <div class="service-card">
+                    <img src="images/service2.jpg" alt="服务2">
+                    <h3>现在的T0.5</h3>
+                    <p></p>
+                </div>
+                <!-- 更多服务项目 -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

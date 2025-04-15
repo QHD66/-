@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QHD</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .portfolio-section {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="企业LOGO">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">缔造奇迹</a></li>
+                <li><a href="portfolio.html" class="active">案例展示</a></li>
+                <li><a href="forum.html">论坛交流</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="portfolio-section">
+            <h1>案例展示</h1>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/portfolio1.png" alt="案例1">
+                    <h3>元歌</h3>
+                    <p>两万三战力 国一在榜</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/portfolio2.png" alt="案例2">
+                    <h3>马超</h3>
+                    <p>两万四战力 国一在榜</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/portfolio3.png" alt="案例2">
+                    <h3>司空震</h3>
+                    <p>两万一战力 国一在榜</p>
+                </div>
+                <!-- 更多案例 -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
