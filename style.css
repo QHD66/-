@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url('images/background.jpg');
+    background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -156,4 +156,5 @@ body::after {
     display: none;
     justify-content: center;
     align-items: center;
+
 }
